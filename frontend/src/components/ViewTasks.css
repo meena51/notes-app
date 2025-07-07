@@ -1,0 +1,52 @@
+.view-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.tasks-table {
+  width: 90%;
+  max-width: 800px;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  background-color: #f7f9fc;
+}
+
+.tasks-table thead th {
+  background-color: #2f3640;
+  color: white;
+  padding: 14px;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.tasks-table tbody td {
+  background-color: #ffffff;
+  padding: 14px;
+  text-align: center;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  vertical-align: middle;
+}
+
+.tasks-table tbody tr.completed td {
+  background-color: #dff0d8;
+  color: #2c3e50;
+  font-style: italic;
+}
+
+.action-icon {
+  margin: 0 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.action-icon:hover {
+  transform: scale(1.1);
+}
+
+.tasks-table input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
