@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from models import db, Task
 from flask_cors import CORS
+import time
+from sqlalchemy.exc import OperationalError
 
 app = Flask(__name__)
 CORS(app)
@@ -15,7 +17,19 @@ db.init_app(app)
 
 
 with app.app_context():
-    db.create_all()
+    retries = 5
+    while retries > 0:
+        try:
+            db.create_all()
+            print("Database connected and tables created")
+            break
+        except OperationalError:
+            retries -= 1
+            print(f"Database connection failed, retries left: {retries}")
+            time.sleep(3)
+    else:
+        print("Could not connect to the database. Exiting.")
+        exit(1)
 
 @app.route("/")
 def home():
