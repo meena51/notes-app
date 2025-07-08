@@ -15,7 +15,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   backend:
-    image: your-dockerhub-meena51/notes-app-backend:latest
+    image: meena51/notes-app-backend:latest
     # build: ./backend
     container_name: flask_container
     ports:
@@ -27,7 +27,7 @@ services:
       - DATABASE_URL=postgres://meena:meena123@db:5432/tasks_db
 
   frontend:
-    image: your-dockerhub-meena51/notes-app-frontend:latest
+    image: meena51/notes-app-frontend:latest
     # build: ./frontend
     container_name: react_container
     ports:
